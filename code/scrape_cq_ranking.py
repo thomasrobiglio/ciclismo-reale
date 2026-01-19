@@ -9,7 +9,7 @@ import time
 # ---------------- CONFIG ----------------
 CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
 PAGE_SIZE = 100
-MAX_RIDERS = 100
+MAX_RIDERS = 1000
 BASE_URL = "https://cqranking.com/men/asp/gen/cqRankingRider.asp?year=2026&current=0&start={}"
 # ----------------------------------------
 

@@ -1,7 +1,9 @@
 ---
 title: "CICLISMO REALE"
-date: last-modified
 ---
+
+{{< include last_updated.md >}}
+
 
 TO DO LIST:
 

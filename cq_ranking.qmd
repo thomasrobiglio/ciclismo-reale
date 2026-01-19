@@ -257,7 +257,7 @@ title: "CQ Ranking"
 <tr class="page page-0" style="display:none;">
 <td style="text-align:center;">31</td>
 <td style="text-align:center;"><img src="https://cqranking.com/common/flags/VEN.gif" width="20"></td>
-<td style="text-align:left;">MAESTRE LEAL Winston</td>
+<td style="text-align:left;">MAESTRE LEAL Winston Jose</td>
 <td style="text-align:center;">-</td>
 <td style="text-align:center;">23/06/2006</td>
 <td style="text-align:center;">7</td>
