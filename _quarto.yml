@@ -10,6 +10,12 @@ website:
         text: Home
       - squadre.qmd
       - cq_ranking.qmd
+  announcement: 
+    icon: info-circle
+    dismissable: false
+    content: "Sistemone in costruzione, portate pazienza"
+    type: primary
+    position: below-navbar
 
 format:
   html:
