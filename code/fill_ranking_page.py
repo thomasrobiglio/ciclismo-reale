@@ -1,17 +1,61 @@
 import pandas as pd
 import math
+import json
 
-# File paths
+# ----------------- FILE PATHS -----------------
 csv_file = "data/cqranking_riders.csv"
+teams_json = "data/teams.json"
 output_file = "cq_ranking.qmd"
 
-# Read CSV
+# ----------------- READ CSV -----------------
 df = pd.read_csv(csv_file)
 
+# ----------------- LOAD FANTA-TEAMS -----------------
+with open(teams_json, "r", encoding="utf-8") as jf:
+    teams_data = json.load(jf)
+
+# rider -> fanta-team lookup (case-insensitive)
+rider_to_fantateam = {}
+for team in teams_data.get("teams", []):
+    team_name = team.get("name", "-")
+    for rider in team.get("riders", []):
+        rider_to_fantateam[rider.upper()] = team_name
+
+# ----------------- ADD FANTASQUADRA COLUMN -----------------
+def get_fantateam(rider):
+    if pd.isna(rider):
+        return "-"
+    return rider_to_fantateam.get(rider.upper(), "-")
+
+df["Fantasquadra"] = df["Rider"].apply(get_fantateam)
+
+# ----------------- ADD BASE D'ASTA COLUMN -----------------
+def compute_base_asta(rank):
+    if pd.isna(rank):
+        return ""
+    rank = int(rank)
+    if rank <= 10:
+        return 1_000_000
+    elif rank <= 20:
+        return 750_000
+    elif rank <= 40:
+        return 500_000
+    elif rank <= 60:
+        return 250_000
+    elif rank <= 80:
+        return 100_000
+    elif rank <= 100:
+        return 50_000
+    else:
+        return 30_000
+
+df["Base d'asta"] = df["Rank"].apply(compute_base_asta)
+
+# ----------------- PAGINATION -----------------
 ROWS_PER_PAGE = 50
 num_pages = math.ceil(len(df) / ROWS_PER_PAGE)
 
-# Open file to write
+# ----------------- WRITE OUTPUT -----------------
 with open(output_file, "w", encoding="utf-8") as f:
 
     # ---- Quarto title ----
@@ -25,8 +69,27 @@ title: "CQ Ranking"
     f.write('<table style="border-collapse: collapse; width:100%;">\n')
     f.write('<thead>\n<tr>\n')
 
-    headers = ["Rank", "", "", "", "", "CQ pts"]
-    widths = ["30px", "30px", "200px", "120px", "80px", "50px"]
+    headers = [
+        "Rank",
+        "",
+        "",
+        "",
+        "Squadra",
+        "Fantasquadra",
+        "CQ pts",
+        "Base d'asta"
+    ]
+
+    widths = [
+        "30px",
+        "30px",
+        "200px",
+        "90px",
+        "120px",
+        "140px",
+        "60px",
+        "90px"
+    ]
 
     for h, w in zip(headers, widths):
         f.write(f'<th style="padding:4px;width:{w};text-align:center;">{h}</th>\n')
@@ -36,25 +99,31 @@ title: "CQ Ranking"
     # ---- Table rows ----
     for i, row in df.iterrows():
         page = i // ROWS_PER_PAGE
+
         flag = f'<img src="{row["Country Flag"]}" width="20">' if pd.notna(row["Country Flag"]) else ""
         rider = row["Rider"].replace("  ", "&nbsp;&nbsp;") if pd.notna(row["Rider"]) else ""
-        team = row["Team"] if pd.notna(row["Team"]) else ""
         dob = row["Date of birth"] if pd.notna(row["Date of birth"]) else ""
+        true_team = row["Team"] if pd.notna(row["Team"]) else ""
+        fanta_team = row["Fantasquadra"]
+        cq_pts = row["CQ"]
+        base_asta = f'{row["Base d\'asta"]:,}'.replace(",", " ")
 
         f.write(
             f'<tr class="page page-{page}" style="display:none;">\n'
             f'<td style="text-align:center;">{row["Rank"]}</td>\n'
             f'<td style="text-align:center;">{flag}</td>\n'
             f'<td style="text-align:left;">{rider}</td>\n'
-            f'<td style="text-align:center;">{team}</td>\n'
             f'<td style="text-align:center;">{dob}</td>\n'
-            f'<td style="text-align:center;">{row["CQ"]}</td>\n'
+            f'<td style="text-align:center;">{true_team}</td>\n'
+            f'<td style="text-align:center;">{fanta_team}</td>\n'
+            f'<td style="text-align:center;">{cq_pts}</td>\n'
+            f'<td style="text-align:center;">{base_asta}</td>\n'
             '</tr>\n'
         )
 
     f.write('</tbody>\n</table>\n')
 
-    # ---- Pagination buttons (bottom, centered) ----
+    # ---- Pagination buttons ----
     f.write("""
 <div id="pagination" style="margin-top:15px; text-align:center;">
 """)
