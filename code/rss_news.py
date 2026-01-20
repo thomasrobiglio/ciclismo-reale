@@ -27,7 +27,6 @@ for entry in feed.entries[:MAX_ITEMS]:
 
     lines.append('<div class="rss-card">')
     lines.append(f'<div class="rss-title"><a href="{link}" target="_blank">{title}</a></div>')
-    lines.append(f'<div class="rss-date">{pub_date}</div>')
     lines.append(f'<div class="rss-desc">{description}</div>')  # Removed <pre> for cleaner styling
     lines.append('</div>\n')
 
