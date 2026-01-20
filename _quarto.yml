@@ -3,11 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "CICLISMO REALE"
+  title: "🛞 CICLISMO REALE"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
       - squadre.qmd
       - cq_ranking.qmd
   announcement: 
