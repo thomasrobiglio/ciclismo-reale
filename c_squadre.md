@@ -1,6 +1,6 @@
 ### AG2R LA COMUNALE <span style='float:right'> CQ pts: 0</span>
 
-**Budget:** 306500 $
+**Budget:** 306500 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -118,7 +118,7 @@
 </details>
 ### CYBER RACING TEAM <span style='float:right'> CQ pts: 35</span>
 
-**Budget:** 2315000 $
+**Budget:** 2315000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -236,7 +236,7 @@
 </details>
 ### DAINESTO PAGILLO <span style='float:right'> CQ pts: 69</span>
 
-**Budget:** 2025000 $
+**Budget:** 2025000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -354,7 +354,7 @@
 </details>
 ### DPJ <span style='float:right'> CQ pts: 1</span>
 
-**Budget:** 2835000 $
+**Budget:** 2835000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -472,7 +472,7 @@
 </details>
 ### GIANCICLI WW <span style='float:right'> CQ pts: 0</span>
 
-**Budget:** 1506000 $
+**Budget:** 1506000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -590,7 +590,7 @@
 </details>
 ### GONDAVERI <span style='float:right'> CQ pts: 0</span>
 
-**Budget:** 1030000 $
+**Budget:** 1030000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -708,7 +708,7 @@
 </details>
 ### HAVANA KHARMA KUOTA <span style='float:right'> CQ pts: 56</span>
 
-**Budget:** 1330000 $
+**Budget:** 1330000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -826,7 +826,7 @@
 </details>
 ### LEGNANO <span style='float:right'> CQ pts: 71</span>
 
-**Budget:** 2117500 $
+**Budget:** 2117500 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -944,7 +944,7 @@
 </details>
 ### MARTINONE UNO <span style='float:right'> CQ pts: 23</span>
 
-**Budget:** 158500 $
+**Budget:** 158500 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -1062,7 +1062,7 @@
 </details>
 ### MASTRO BIRRAIO & PURITO GCP <span style='float:right'> CQ pts: 18</span>
 
-**Budget:** 1670000 $
+**Budget:** 1670000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -1180,7 +1180,7 @@
 </details>
 ### OFFICINA BOCCETTINI CC <span style='float:right'> CQ pts: 1</span>
 
-**Budget:** 1230000 $
+**Budget:** 1230000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -1298,7 +1298,7 @@
 </details>
 ### PANETTERIA BERGERO <span style='float:right'> CQ pts: 0</span>
 
-**Budget:** 1452000 $
+**Budget:** 1452000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -1416,7 +1416,7 @@
 </details>
 ### S. PIETROBAUDO <span style='float:right'> CQ pts: 60</span>
 
-**Budget:** 2172000 $
+**Budget:** 2172000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -1534,7 +1534,7 @@
 </details>
 ### SANROMARIANO <span style='float:right'> CQ pts: 3</span>
 
-**Budget:** 3392500 $
+**Budget:** 3392500 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
@@ -1607,7 +1607,7 @@
 </details>
 ### TOPINA M.B. <span style='float:right'> CQ pts: 30</span>
 
-**Budget:** 1745000 $
+**Budget:** 1745000 $ 
 <details>
 <summary>Corridori</summary>
 <table style="border-collapse: collapse; width:100%;">
