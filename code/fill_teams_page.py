@@ -5,7 +5,8 @@ import pandas as pd
 json_file = "data/teams.json"
 csv_file = "data/cqranking_riders.csv"
 quarto_file = "c_squadre.md"
-ranking_html_file = "classifica_totale.html"
+ranking_html_file_big = "classifica_totale_big.html"
+ranking_html_file_small = "classifica_totale_small.html"
 
 # Load teams JSON
 with open(json_file, "r", encoding="utf-8") as f:
@@ -38,7 +39,8 @@ for team in teams_data["teams"]:
     teams_points.append({
         "name": team["name"],
         "total_points": int(total_points),
-        "riders_info": riders_info
+        "riders_info": riders_info,
+        "budget": team["budget"]
     })
 
 # --- Part 1: Save overall ranking in HTML with small font and medals ---
@@ -47,16 +49,13 @@ teams_sorted_by_points = sorted(teams_points, key=lambda x: x["total_points"], r
 medals = ["🥇", "🥈", "🥉", "🪵"]
 
 html_content = """
-<div style="text-align:center; font-weight:bold; font-size:1.2em; margin-bottom: 2px;">
-CLASSIFICA
-</div>
-<div style="font-size: small;">
+<div>
 <table style="border-collapse: collapse; width:100%;">
 <thead>
 <tr style="border-bottom:1px solid #ccc;">
 <th style="text-align:center; padding:4px;"> </th>
 <th style="text-align:left; padding:4px;"> </th>
-<th style="text-align:right; padding:4px;"> Punti </th>
+<th style="text-align:right; padding:4px;"> CQ pts </th>
 </tr>
 </thead>
 <tbody>
@@ -74,10 +73,43 @@ for idx, team in enumerate(teams_sorted_by_points, start=1):
 
 html_content += "</tbody>\n</table>\n</div>"
 
-with open(ranking_html_file, "w", encoding="utf-8") as f:
+with open(ranking_html_file_big, "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print(f"HTML ranking with small font saved to {ranking_html_file}")
+print(f"HTML ranking with normal font saved to {ranking_html_file_big}")
+
+html_content = """
+<div style="text-align:center; font-weight:bold; font-size:1.2em; margin-bottom: 2px;">
+CLASSIFICA
+</div>
+<div style="font-size: small;">
+<table style="border-collapse: collapse; width:100%;">
+<thead>
+<tr style="border-bottom:1px solid #ccc;">
+<th style="text-align:center; padding:4px;"> </th>
+<th style="text-align:left; padding:4px;"> </th>
+<th style="text-align:right; padding:4px;"> CQ pts </th>
+</tr>
+</thead>
+<tbody>
+"""
+
+for idx, team in enumerate(teams_sorted_by_points, start=1):
+    medal = medals[idx - 1] if idx <= 4 else str(idx)
+    html_content += (
+        f"<tr>\n"
+        f"<td style='text-align:center; padding:4px;'>{medal}</td>\n"
+        f"<td style='text-align:left; padding:4px;'>{team['name']}</td>\n"
+        f"<td style='text-align:right; padding:4px;'>{team['total_points']}</td>\n"
+        f"</tr>\n"
+    )
+
+html_content += "</tbody>\n</table>\n</div>"
+
+with open(ranking_html_file_small, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"HTML ranking with small font saved to {ranking_html_file_small}")
 
 # --- Part 2: Save teams and riders to Quarto file alphabetically (no medals, no rank) ---
 teams_sorted_alpha = sorted(teams_points, key=lambda x: x["name"].lower())
@@ -86,10 +118,11 @@ quarto_content = ""
 
 for team in teams_sorted_alpha:
     # Team header with total points
-    quarto_content += f"### {team['name']} <span style='float:right'>{team['total_points']}</span>\n\n"
+    quarto_content += f"### {team['name']} <span style='float:right'> CQ pts: {team['total_points']}</span>\n\n"
+    quarto_content += f"**Budget:** {team["budget"]} $\n" # maybe here we change to a more readable format
 
     # Collapsible section for riders
-    quarto_content += "<details>\n<summary>Corridori</summary>\n\n"
+    quarto_content += "<details>\n<summary>Corridori</summary>\n"
     quarto_content += '<table style="border-collapse: collapse; width:100%;">\n'
     quarto_content += '<thead>\n<tr>\n'
     headers = ["", "", "CQ pts"]
@@ -107,7 +140,7 @@ for team in teams_sorted_alpha:
             '</tr>\n'
         )
 
-    quarto_content += '</tbody>\n</table>\n\n</details>\n\n'
+    quarto_content += '</tbody>\n</table>\n\n</details>\n'
 
 # Write Quarto file
 with open(quarto_file, "w", encoding="utf-8") as f:

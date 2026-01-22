@@ -3,4 +3,20 @@ title: "Classifiche"
 ---
 <hr>
 
-Qui da aggiungere. 
+:::::: {.columns}
+::: {.column width=47%}
+### Classifica totale 2026
+{{< include classifica_totale_big.html >}}
+:::
+
+::: {.column width=6%}
+:::
+
+::: {.column width=47%}
+### Classifica mese corrente
+{{< include classifica_totale_big.html >}}
+:::
+:::
+
+### Classifiche mensili
+Da aggiungere.

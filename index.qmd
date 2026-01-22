@@ -9,5 +9,5 @@ title: "Ciao!"
 :::
 
 ::: {.aside}
-{{< include classifica_totale.html >}}
+{{< include classifica_totale_small.html >}}
 :::

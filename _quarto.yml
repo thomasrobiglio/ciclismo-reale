@@ -7,13 +7,13 @@ website:
   navbar:
     pinned: true
     left:
+      - classifica.qmd
       - squadre.qmd
       - cq_ranking.qmd
-      - classifica.qmd
   announcement: 
     icon: info-circle
     dismissable: false
-    content: "Sistemone in costruzione, portate pazienza"
+    content: "Sistemone in costruzione, portate pazienza!"
     type: primary
     position: below-navbar
 
