@@ -4,17 +4,17 @@ title: "Classifiche"
 
 <hr>
 
-:::::: {.columns}
-::: {.column}
+:::{.columns style="column-gap: 10rem;"}
+::: {.column width="50%"}
 ### Classifica totale 2026
 {{< include classifica_totale_big.html >}}
 :::
 
-::: {.column}
+::: {.column width="50%"}
 ### Classifica mese corrente
 {{< include classifica_totale_big.html >}}
 :::
-::::::
+::::
 
 ### Classifiche mensili
 Da aggiungere.
