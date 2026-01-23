@@ -1,41 +1,8 @@
-/* Layout spacing and card style */
 .columns {
   display: flex !important;
   gap: 4rem;
   flex-wrap: wrap;
 }
-
-/* Card look */
-.column {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem 1.75rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  flex: 1 1 0; /* default desktop behavior */
-  min-width: 0; /* allow shrinking properly */
-}
-
-/* Headings inside cards */
-.column h3 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-}
-
-/* Mobile: stack all columns vertically and take full width */
-@media (max-width: 768px) {
-  .columns {
-    flex-direction: column !important;
-    gap: 2rem;
-  }
-
-  .column {
-    flex: 1 1 100%;  /* full width on mobile */
-  }
-}
-
-
 
 /* Scrollable RSS container */
 .rss-scroll {
